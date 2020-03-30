@@ -1,5 +1,5 @@
 #!/bin/bash
-declare -p | grep -E 'URLS|PUSHGATEWAY_URL|CURL_CONNECT_TIMEOUT|CURL_MAX_TIME' > /container.env
+declare -p | grep -E 'URLS|WEB_URLS_URI|PUSHGATEWAY_URL|CURL_CONNECT_TIMEOUT|CURL_MAX_TIME' > /container.env
 
 if [ ! "${CRON_TIME}" ];then
     CRON_TIME="*/5 * * * *"

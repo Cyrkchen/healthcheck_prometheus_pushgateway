@@ -56,7 +56,7 @@ if [ ${WEB_URLS_URI} ]; then
 fi
 
 # dedup URLS
-for url in $(echo "${URLS[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' ')
+for url in $(echo "${URLS//,/ [@]}" | tr ' ' '\n' | sort -u | tr '\n' ' ')
 do
     logThis "start curl ${url}"
     health_metric=$(curl --connect-timeout ${CURL_CONNECT_TIMEOUT:-10}  --max-time ${CURL_MAX_TIME:-10} -o /dev/null -s -w "%{time_total}" ${url})
